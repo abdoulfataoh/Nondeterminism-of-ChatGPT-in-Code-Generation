@@ -18,7 +18,7 @@ We use generate_response.py to generate response with three code problem dataset
 
 ### 2. Intermedia result processing
 
-We use intermedia_analyze.py to generate intermedia based on the test cases and responses we get in the first step, intermedia result will be stored into '.\log\record\' (Most of the results here have mistakes)
+We use intermedia_analyze.py to generate intermedia based on the test cases and responses we get in the first step, intermedia result will be stored into '.\log\record\' 
 
 We then use Structural similarity.py and Syntactic Similarity & OER.py to generate the final results we need in semantic similarity, syntactic similarity, and structural similarity.
 
