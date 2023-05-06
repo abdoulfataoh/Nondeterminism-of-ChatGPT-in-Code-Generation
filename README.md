@@ -3,7 +3,7 @@
 ## Datasets
 Below are the links of datasets we used in our experiments.
 
-[HumanEval](https://github.com/openai/human-eval) We use script Modify_HumanEval.py to reshape the HumanEval dataset.
+[HumanEval](https://github.com/openai/human-eval) We use script [Modify_HumanEval.py](https://github.com/CodeHero0/Stability-of-ChatGPT-in-Code-Generation/blob/main/Modify_HumanEval.py) to reshape the HumanEval dataset.
 
 [APPS](https://github.com/hendrycks/apps)
 
