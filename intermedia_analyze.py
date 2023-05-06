@@ -346,10 +346,9 @@ def analyze_process(log_file):
                 semantic_similarity(problem_dic, name, code_candidates)
                 # syntatic similarity
                 # whether 5 output is same
-                syntatic_similarity(problem_dic, name, code_candidates, case_status_list)
+                # syntatic_similarity(problem_dic, name, code_candidates, case_status_list)
                 # structural_similarity
-                structual_similarity(problem_dic, name, code_reference)
-    # return problem_dic
+                # structual_similarity(problem_dic, name, code_reference)
                 print('writing in %s' % (name), flush=True)
                 # write in
                 json_str = json.dumps(problem_dic[name])
@@ -442,9 +441,9 @@ def analyze_process_HumanEval(log_file):
                 semantic_similarity(problem_dic, name, code_candidates)
                 # syntatic similarity
                 # whether 5 output is same
-                syntatic_similarity(problem_dic, name, code_candidates, case_status_list)
+                # syntatic_similarity(problem_dic, name, code_candidates, case_status_list)
                 # structural_similarity
-                structual_similarity(problem_dic, name, code_reference)
+                # structual_similarity(problem_dic, name, code_reference)
                 # return problem_dic
                 print('writing in %s' % (name), flush=True)
                 # write in
@@ -544,9 +543,9 @@ def analyze_process_APPS(log_file):
                 semantic_similarity(problem_dic, name, code_candidates)
                 # syntatic similarity
                 # whether 5 output is same
-                syntatic_similarity(problem_dic, name, code_candidates, case_status_list)
+                # syntatic_similarity(problem_dic, name, code_candidates, case_status_list)
                 # structural_similarity
-                structual_similarity(problem_dic, name, code_reference)
+                # structual_similarity(problem_dic, name, code_reference)
                 # return problem_dic
                 print('writing in %s' % (name), flush=True)
                 # write in

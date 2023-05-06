@@ -103,50 +103,49 @@ def response_2_code(response):
 
 dataset_ = ['code_contest','APPS', 'HumanEval']
 # 'APPS','code_contest',  'HumanEval'
-dataset = dataset_[1]
+dataset = dataset_[0,1,2]
 # 0, 1, 2
-temperature_ = [1]
+temperature_ = [2]
 # R1, R2
-request_way = 'R1'
-# for dataset in dataset_:
-for temperature in temperature_:
-    print('----------------------------------------', flush=True)
-    print('Dataset: %s, temperature: %s' % (dataset, temperature), flush=True)
-    print('----------------------------------------', flush=True)
-    # fig_save_dir = './fig/structural_similarity/'
-    fig_save_dir = './structural_similarity/'
-    problem_dic = {}
-    with open('./log/dataset_%s_model_gpt-3.5-turbo_topn_5_temperature_%s.0.log_%s' % (dataset, temperature, 0), 'r') as f:
-        for line in f.readlines():
-            tmp = json.loads(line)
-            problem_dic[tmp['name']] = {'code_list':[]}
-
-    length = len(problem_dic)
-    code_list = []
-    if request_way == "R1":
-        with open('./log/dataset_%s_model_gpt-3.5-turbo_topn_5_temperature_%s.0.log_%s' % (dataset, temperature, 0),
-                  'r') as f:
+request_way = 'R2'
+for dataset in dataset_:
+    for temperature in temperature_:
+        print('----------------------------------------', flush=True)
+        print('Dataset: %s, temperature: %s' % (dataset, temperature), flush=True)
+        print('----------------------------------------', flush=True)
+        fig_save_dir = './fig/structural_similarity/'
+        # fig_save_dir = './structural_similarity/'
+        problem_dic = {}
+        with open('./log/dataset_%s_model_gpt-3.5-turbo_topn_5_temperature_%s.0.log_%s' % (dataset, temperature, 0), 'r') as f:
             for line in f.readlines():
                 tmp = json.loads(line)
-                problem_dic[tmp['name']]['code_list'].append(response_2_code(tmp['response']))
-    elif request_way == "R2":
-        for i in range(5):
-            with open('./log/dataset_%s_model_gpt-3.5-turbo_topn_5_temperature_%s.0.log_%s' % (dataset, temperature, i), 'r') as f:
+                problem_dic[tmp['name']] = {'code_list':[]}
+
+        length = len(problem_dic)
+        code_list = []
+        if request_way == "R1":
+            with open('./log/dataset_%s_model_gpt-3.5-turbo_topn_5_temperature_%s.0.log_%s' % (dataset, temperature, 0),
+                      'r') as f:
                 for line in f.readlines():
                     tmp = json.loads(line)
-                    if tmp['index'] == 0:
-                        problem_dic[tmp['name']]['code_list'].append(response_2_code(tmp['response']))
+                    problem_dic[tmp['name']]['code_list'].append(response_2_code(tmp['response']))
+        elif request_way == "R2":
+            for i in range(5):
+                with open('./log/dataset_%s_model_gpt-3.5-turbo_topn_5_temperature_%s.0.log_%s' % (dataset, temperature, i), 'r') as f:
+                    for line in f.readlines():
+                        tmp = json.loads(line)
+                        if tmp['index'] == 0:
+                            problem_dic[tmp['name']]['code_list'].append(response_2_code(tmp['response']))
 
-    for key in problem_dic:
-        print('problem: %s' % (key), flush=True)
-        structual_similarity(problem_dic, key, problem_dic[key]['code_list'])
-        problem_dic[key].pop('code_list')
+        for key in problem_dic:
+            print('problem: %s' % (key), flush=True)
+            structual_similarity(problem_dic, key, problem_dic[key]['code_list'])
+            problem_dic[key].pop('code_list')
 
-
-    json_str = json.dumps(problem_dic)
-    if request_way == "R1":
-        with open(fig_save_dir+'%s_%s_structual_similarity_among5.json' % (dataset, temperature), 'w') as f:
-            f.write(json_str)
-    elif request_way == "R2":
-        with open(fig_save_dir+'%s_%s_structual_similarity_top0_5.json' % (dataset, temperature), 'w') as f:
-            f.write(json_str)
+        json_str = json.dumps(problem_dic)
+        if request_way == "R1":
+            with open(fig_save_dir+'%s_%s_structual_similarity_among5.json' % (dataset, temperature), 'w') as f:
+                f.write(json_str)
+        elif request_way == "R2":
+            with open(fig_save_dir+'%s_%s_structual_similarity_top0_5.json' % (dataset, temperature), 'w') as f:
+                f.write(json_str)
