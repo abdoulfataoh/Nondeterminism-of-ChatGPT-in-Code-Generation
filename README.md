@@ -13,6 +13,8 @@ Below are the links of datasets we used in our experiments.
 
 './heatmaps' stores all the heatmaps of three datasets.
 
+'./tables' stores all the experiment results.
+
 ## Conduct Experiments
 Our experiments mainly contains three steps:
 
