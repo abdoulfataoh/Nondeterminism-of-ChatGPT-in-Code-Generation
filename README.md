@@ -9,6 +9,10 @@ Below are the links of datasets we used in our experiments.
 
 [CodeContests](https://github.com/deepmind/code_contests) For those who may not know how to conver riegeli files into JSON files, here is the [script](https://github.com/deepmind/code_contests/pull/21)
 
+## Full results
+
+'./heatmaps' stores all the heatmaps of three datasets.
+
 ## Conduct Experiments
 Our experiments mainly contains three steps:
 
