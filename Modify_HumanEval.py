@@ -8,7 +8,7 @@ problem_list = []
 model = 'gpt-3.5-turbo'
 topn = 5
 temperature = float(1)
-openai.api_key = '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'
+openai.api_key = ''
 # for_list = [32, 38, 44, 50, 53, 65, 66, 68, 71, 74, 76, 79, 83, 84, 88, 89, 91, 92, 93, 94, 100, 101, 105, 107, 108, 109, 111, 113, 114, 115, 116, 122, 123, 126, 128, 132, 133, 140, 143, 145, 151, 152, 154, 157, 159, 160, 163]
 def run_test_case(i):
     test_cases = test_case_dic[problem_list[i]['task_id']]
