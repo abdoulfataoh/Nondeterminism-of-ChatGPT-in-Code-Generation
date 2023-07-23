@@ -33,11 +33,11 @@ We use generate_response.py to generate responses with three code problem datase
 python generate_response.py -d HumanEval -m gpt-3.5-turbo -n 5 -t 1 -s 0 
 ```
 
-
 There are bugs that might occur in running this script:
 1. dataset path error (change the dataset store path in the functions, e.g. code_contest_experiment, APPS_experiment, and HumanEval_experiment)
-2. paste your own openai.api_key in the file (**DON'T upload your script with your openai.key to the public repository!!!!!!!!!!!**)
+2. paste your own openai.api_key in the file. (**DON'T upload your script with your openai.key to the public repository!!!!!!!!!!!**) If you are still a free user of Openai model API, please config your account as pay-as-you-go before running the script, otherwise it's likely to reach the free trial limitation.
 3. download the library that you don't have in your environment
+4. Due to some unexpected error from ChatGPT API such as requesting over time, running the script once cannot guarantee to cover all the problems in the dataset. So our recommended solution is to run the script multiple times.
 
 
 ### 2. Intermediate result processing
