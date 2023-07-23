@@ -26,18 +26,21 @@ Our experiments mainly contain the following scripts:
 
 ### 1. Generating response
 
-We use generate_response.py to generate responses with three code problem datasets, and store them into JSON files in '.\log\'. (Below is the example command to run this script)
+We use generate_response.py to generate responses with three code problem datasets, and store them into JSON files in '.\log\'. (Below is the example command to run this script). If you want to change the way of requesting ChatGPT, please see [Openai's official website](https://platform.openai.com/docs/api-reference/chat).
+
 
 ```sh
 python generate_response.py -d HumanEval -m gpt-3.5-turbo -n 5 -t 1 -s 0 
 ```
+
+
 There are bugs that might occur in running this script:
 1. dataset path error (change the dataset store path in the functions, e.g. code_contest_experiment, APPS_experiment, and HumanEval_experiment)
 2. paste your own openai.api_key in the file (**DON'T upload your script with your openai.key to the public repository!!!!!!!!!!!**)
 3. download the library that you don't have in your environment
 
 
-### 2. Intermedia result processing
+### 2. Intermediate result processing
 
 We use `intermedia_analyze.py` to generate intermedia based on the test cases and responses we get in the first step, intermedia results will be stored in `'.\log\record\'`. (Below is the example command to run this script)
 
