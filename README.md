@@ -57,7 +57,7 @@ We then use `syntactic_similarity_OER.py` and `structural_similarity.py` to gene
 python syntactic_similarity_OER.py
 ```
 ```sh
-structural_similarity.py
+python structural_similarity.py
 ```
 There are bugs that might occur in running this script:
 1. the config settings are written in each code's main function, change the config setting before running the script
