@@ -1,4 +1,4 @@
-# Stability-of-ChatGPT-in-Code-Generation
+# Nondeterminism-of-ChatGPT-in-Code-Generation
 
 ## Datasets
 Below are the links to the datasets we used in our experiments. (Below are the instruction of how to download and prepare the dataset)
