@@ -1,7 +1,7 @@
 # Nondeterminism-of-ChatGPT-in-Code-Generation
 
 ## Datasets
-Below are the links to the datasets we used in our experiments. (Below are the instruction of how to download and prepare the dataset)
+There are links to the datasets we used in our experiments. (Below are the instructions on how to download and prepare the dataset)
 
 [HumanEval](https://github.com/openai/human-eval) 
 
