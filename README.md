@@ -5,7 +5,7 @@ There are links to the datasets we used in our experiments. (Below are the instr
 
 [HumanEval](https://github.com/openai/human-eval) 
 
-1. Click the link will redirect you to the human-eval homepage. On the homepage, in the homepage, you can download the data from '.\data\HumanEval.jsonl.gz'.
+1. Click the link will redirect you to the human-eval homepage. On the homepage, you can download the data from '.\data\HumanEval.jsonl.gz'.
 2. Decompress the file, then you get the dataset ''.\data\HumanEval.jsonl'
 3. Due to the dataset are not perfect for the experiment, we use script [Modify_HumanEval.py](https://github.com/CodeHero0/Stability-of-ChatGPT-in-Code-Generation/blob/main/Modify_HumanEval.py) to reshape the HumanEval dataset.
 
