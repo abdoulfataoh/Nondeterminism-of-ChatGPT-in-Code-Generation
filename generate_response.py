@@ -9,8 +9,11 @@ import json
 import subprocess
 import argparse
 from nltk.corpus import stopwords
+from tree_of_thoughts.openai_models import OpenAILanguageModel
+from tree_of_thoughts.treeofthoughts import MonteCarloTreeofThoughts
 
 openai.api_key = ''
+
 
 def description_2_code(description, model, topn, temperature):
     prompt = 'Generate Python3 code (Markdown):\n'
@@ -35,6 +38,35 @@ def description_2_code(description, model, topn, temperature):
     #         code_list.append('')
     # return code_list, response_list
     return response_list
+
+
+def tree_of_thought_code_generation(
+        example: str,
+        example_hint: str,
+        task_description: str,
+        num_thoughts: int = 1,
+        max_steps: int = 3,
+        max_states: int = 4,
+        pruning_threshold: int = 0.5
+    ):
+
+    model = OpenAILanguageModel(api_key=openai.api_key)
+    tree_of_thoughts = MonteCarloTreeofThoughts(model)
+    query_prompt = f'''
+    Input: {example}
+    Solution:
+    {example_hint}
+    Input: Genere python3 code for {task_description}
+    '''
+    response = tree_of_thoughts.solve(
+    initial_prompt=query_prompt,
+    num_thoughts=num_thoughts, 
+    max_steps=max_steps, 
+    max_states=max_states, 
+    pruning_threshold=pruning_threshold,
+    )
+    return response
+
 
 def code_contest_experiment(dataset, option, model, sequence, topn=1, temperature=1.0):
     if option == 'original':
